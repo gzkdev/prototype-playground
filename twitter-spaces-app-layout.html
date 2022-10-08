@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Spaces</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+      }
+
+      html {
+        height: 100%;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100%;
+        font-size: 0.94rem;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        line-height: 1.5;
+        background-color: #ebebeb;
+      }
+
+      .container {
+        width: min(100%, 1000px);
+        margin: 0 auto;
+      }
+
+      .app {
+        width: 100%;
+        display: grid;
+      }
+
+      .app-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        background-color: #fff;
+      }
+
+      .app-nav ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+        padding: 1rem 2rem;
+      }
+
+      .app-nav ul .text {
+        display: none;
+      }
+
+      .app-nav ul .icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #ebebeb;
+      }
+
+      .main-nav {
+        width: 100%;
+        padding: 1rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: #fff;
+        position: sticky;
+        top: 0;
+        font-weight: 600;
+      }
+
+      .nav-icon {
+        width: 30px;
+        height: 30px;
+        background-color: #ebebeb;
+        border-radius: 50%;
+      }
+
+      .main-ctn {
+        width: 100%;
+        display: grid;
+        gap: 3rem;
+        padding-bottom: 8rem;
+      }
+
+      .carousel {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .carousel-flex {
+        display: flex;
+        gap: 2rem;
+        padding: 2rem 1rem 0px 1rem;
+        align-items: center;
+        overflow-x: auto;
+      }
+
+      .carousel-flex::-webkit-scrollbar {
+        width: 0;
+      }
+
+      .carousel-sub-title {
+        padding: 1rem 2rem;
+      }
+
+      .carousel-item {
+        min-width: min(85vw, 320px);
+        height: 400px;
+        background-color: #fff;
+        border-radius: 2rem;
+        padding: 2rem 1rem;
+      }
+
+      .cards {
+        padding: 0px 1rem;
+        display: grid;
+        gap: 1rem;
+      }
+
+      .cards-title {
+        padding: 1rem 1rem;
+        font-weight: 600;
+        font-size: 1.25rem;
+      }
+
+      .cards-flex {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .card {
+        width: 100%;
+        height: 144px;
+        background-color: #fff;
+        border-radius: 1.5rem;
+      }
+
+      @media (min-width: 1000px) {
+        .app {
+          grid-template-columns: 300px 1fr;
+        }
+
+        .app-nav {
+          top: 0;
+          position: sticky;
+          height: 100vh;
+        }
+
+        .app-nav ul {
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          gap: 1.5rem;
+        }
+
+        .app-nav ul li {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .app-nav ul .text {
+          display: block;
+        }
+
+        .cards-flex {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <nav class="app-nav">
+        <ul>
+          <li>
+            <div class="icon"></div>
+            <div class="text">Home</div>
+          </li>
+          <li>
+            <div class="icon"></div>
+            <div class="text">Spaces</div>
+          </li>
+          <li>
+            <div class="icon"></div>
+            <div class="text">Search</div>
+          </li>
+          <li>
+            <div class="icon"></div>
+            <div class="text">Notifications</div>
+          </li>
+          <li>
+            <div class="icon"></div>
+            <div class="text">Chat</div>
+          </li>
+        </ul>
+      </nav>
+      <div class="app-main">
+        <div class="main-nav">
+          <div class="nav-icon"></div>
+          <div class="nav-text">Audio</div>
+        </div>
+        <div class="main-ctn">
+          <div class="carousel">
+            <div class="carousel-flex">
+              <div class="carousel-item"></div>
+              <div class="carousel-item"></div>
+              <div class="carousel-item"></div>
+              <div class="carousel-item"></div>
+              <div class="carousel-item"></div>
+            </div>
+            <div class="carousel-sub-title">✨A list of Refreshing talks</div>
+          </div>
+
+          <div class="cards">
+            <div class="cards-title">Latest spaces</div>
+            <div class="cards-flex">
+              <div class="card"></div>
+              <div class="card"></div>
+              <div class="card"></div>
+              <div class="card"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

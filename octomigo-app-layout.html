@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Octomigo</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        height: 100%;
+      }
+
+      body {
+        height: 100%;
+        font-size: 0.94rem;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        line-height: 1.5;
+        background-color: #ebebeb;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+
+      .app {
+        display: grid;
+        isolation: isolate;
+      }
+
+      .user {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .user > .container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15vh 24px;
+      }
+
+      .user .header {
+        top: 0;
+        position: sticky;
+      }
+
+      .user .thumbnail {
+        width: 180px;
+        height: 180px;
+        background-color: #fff;
+        border-radius: 48px;
+      }
+
+      .user .name {
+        margin: 12px 0 0;
+        font-size: 20px;
+      }
+
+      .user .username {
+        color: blue;
+        font-size: 20px;
+      }
+
+      .user .company {
+        margin: 8px 0;
+      }
+
+      .header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0px;
+      }
+
+      .header a {
+        text-decoration: none;
+      }
+
+      .content {
+        background-color: #fff;
+        min-height: 150vh;
+        /* border-radius: 40px; */
+      }
+
+      .content .container {
+        padding: 80px 0px;
+      }
+
+      .section {
+        margin-bottom: 48px;
+      }
+
+      .section .title {
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .stat {
+        flex-grow: 1;
+        min-width: 100px;
+      }
+
+      .stat .number {
+        font-size: 40px;
+        font-weight: 600;
+      }
+
+      .repos {
+        list-style: none;
+        display: grid;
+        gap: 24px;
+        margin-top: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .repo {
+        background-color: #ebebeb;
+        padding: 24px 16px;
+        border-radius: 24px;
+      }
+
+      .repo__name {
+        display: inline-block;
+        font-size: 20px;
+        text-decoration: none;
+      }
+
+      .repo:hover .repo__name {
+        text-decoration: underline;
+      }
+
+      .repo__description {
+        margin: 8px 0;
+      }
+
+      .repo__stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin-top: 40px;
+      }
+
+      .repo__stat {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      @media (min-width: 1000px) {
+        .app {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .user {
+          top: 0;
+          position: sticky;
+          height: 100vh;
+        }
+
+        .user > .container {
+          padding: 0;
+        }
+
+        .content {
+          border-radius: 0px;
+        }
+
+        .content .container {
+          padding: 20px 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="user">
+        <div class="header">
+          <div class="container">
+            <a href="#">Back</a>
+            <div>Profile</div>
+            <a href="#">Menu</a>
+          </div>
+        </div>
+        <div class="container">
+          <div class="thumbnail"></div>
+          <div class="name">Godswill Ezihe</div>
+          <div class="username">@gzkdev</div>
+          <!-- <div class="company">Tradable Finance</div> -->
+          <div class="company">Lagos, Nigeria</div>
+          <!-- <div class="location">Lagos, Nigeria</div> -->
+        </div>
+      </div>
+      <div class="content">
+        <div class="container">
+          <!-- <div class="section">
+            <div class="title">Bio</div>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam,
+              commodi quidem ad maiores quae nulla amet quia laborum recusandae
+              vero eligendi deleniti voluptates qui?
+            </p>
+          </div> -->
+
+          <!-- <div class="section">
+            <div class="title">Company</div>
+            <p>Tradable Finance</p>
+          </div>
+
+          <div class="section">
+            <div class="title">Location</div>
+            <div>Lagos, Nigeria</div>
+          </div>
+
+          <div class="section">
+            <div class="title">Joined Github</div>
+            <div>28/10/2019</div>
+          </div> -->
+
+          <!-- <div class="section">
+            <div class="stats">
+              <div class="stat">
+                <div class="title">Company</div>
+                <div>Tradable Finance</div>
+              </div>
+
+              <div class="stat">
+                <div class="title">Location</div>
+                <div>Lagos, Nigeria</div>
+              </div>
+
+              <div class="stat">
+                <div class="title">Join Date</div>
+                <div>28/05/2019</div>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="section">
+            <div class="title">Stats</div>
+            <div class="stats">
+              <div class="stat">
+                <div class="number">44</div>
+                <div class="text">Following</div>
+              </div>
+              <div class="stat">
+                <div class="number">125</div>
+                <div class="text">Followers</div>
+              </div>
+              <div class="stat">
+                <div class="number">64</div>
+                <div class="text">Repositories</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="title">Repositories</div>
+
+            <ul class="repos">
+              <li class="repo">
+                <a href="#" class="repo__name"
+                  >Altschool-javaScript-assignment</a
+                >
+                <div class="repo__description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Incidunt animi consequuntur sunt eos cumque sequi hic pariatur
+                  voluptatibus aliquam illo.
+                </div>
+                <div class="repo__stats">
+                  <div class="repo__stat">
+                    <div class="text">Stars</div>
+                    <div class="number">2</div>
+                  </div>
+                  <div class="repo__stat">
+                    <div class="text">Forks</div>
+                    <div class="number">5</div>
+                  </div>
+                  <div class="repo__stat">
+                    <div class="text">Watchers</div>
+                    <div class="number">2</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="repo">
+                <a href="#" class="repo__name"
+                  >Altschool-javaScript-assignment</a
+                >
+                <div class="repo__description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Incidunt animi consequuntur sunt eos cumque sequi hic pariatur
+                  voluptatibus aliquam illo.
+                </div>
+                <div class="repo__stats">
+                  <div class="repo__stat">
+                    <div class="text">Stars</div>
+                    <div class="number">2</div>
+                  </div>
+                  <div class="repo__stat">
+                    <div class="text">Forks</div>
+                    <div class="number">5</div>
+                  </div>
+                  <div class="repo__stat">
+                    <div class="text">Watchers</div>
+                    <div class="number">2</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="repo">
+                <a href="#" class="repo__name"
+                  >Altschool-javaScript-assignment</a
+                >
+                <div class="repo__description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Incidunt animi consequuntur sunt eos cumque sequi hic pariatur
+                  voluptatibus aliquam illo.
+                </div>
+                <div class="repo__stats">
+                  <div class="repo__stat">
+                    <div class="text">Stars</div>
+                    <div class="number">2</div>
+                  </div>
+                  <div class="repo__stat">
+                    <div class="text">Forks</div>
+                    <div class="number">5</div>
+                  </div>
+                  <div class="repo__stat">
+                    <div class="text">Watchers</div>
+                    <div class="number">2</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

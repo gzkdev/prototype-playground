@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-size: 1rem;
+        line-height: 1.5;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        background-color: darksalmon;
+      }
+
+      .container {
+        width: min(90%, 1200px);
+        margin: 0 auto;
+        padding: 24px 0px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 160px;
+        width: 160px;
+        margin: 10px 10px;
+        border: 3px solid salmon;
+        background-color: #fff;
+      }
+
+      .fill {
+        background: linear-gradient(lightblue, lightblue);
+        position: relative;
+        height: 140px;
+        width: 140px;
+        /* top: 5px;
+        left: 5px; */
+        cursor: pointer;
+        margin: auto;
+      }
+
+      .hold {
+        border: 3px solid #ccc;
+      }
+
+      .hovered {
+        background-color: #f4f4f4;
+        border-style: dashed;
+      }
+
+      .invisible {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="empty">
+        <div class="fill" draggable="true"></div>
+      </div>
+      <div class="empty"></div>
+      <div class="empty"></div>
+      <div class="empty"></div>
+      <div class="empty"></div>
+    </div>
+
+    <script>
+      const fill = document.querySelector(".fill");
+      const emptyBoxes = document.querySelectorAll(".empty");
+
+      function dragStart() {
+        this.className += " hold";
+        setTimeout(() => (this.className = "invisible"), 0);
+      }
+      function dragEnd() {
+        this.className = "fill";
+      }
+
+      function dragOver(e) {
+        e.preventDefault();
+      }
+      function dragEnter(e) {
+        e.preventDefault();
+        this.className += " hovered";
+      }
+      function dragLeave() {
+        this.className = "empty";
+      }
+      function dragDrop() {
+        this.className = "empty";
+        this.appendChild(fill);
+      }
+
+      emptyBoxes.forEach((box) => {
+        box.addEventListener("dragover", dragOver);
+        box.addEventListener("dragenter", dragEnter);
+        box.addEventListener("dragleave", dragLeave);
+        box.addEventListener("drop", dragDrop);
+      });
+
+      fill.addEventListener("dragstart", dragStart);
+      fill.addEventListener("dragend", dragEnd);
+    </script>
+  </body>
+</html>
